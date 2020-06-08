@@ -20,7 +20,9 @@ import { CoreModule } from './core/core.module';
     LoginModule,
     TextModule,
     IconsModule,
-    CoreModule
+    CoreModule,
+    NgbModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
