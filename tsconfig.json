@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false, // Indique si l'on compile à chaque sauvegarde de fichier
+  "compilerOptions": { // https://www.typescriptlang.org/docs/handbook/compiler-options.html
+    "baseUrl": "./", // Racine du projet (fichiers sources) qui seront compilés
+    "outDir": "./dist/out-tsc", // Répertoire de sortie des fichiers compilés
+    "sourceMap": true, // Génére les .map correspondant au fichiers
+    "declaration": false, // Permet de générer les declarations files (concept typescript avancé)
+    "downlevelIteration": true, // Permet d'utiliser les nouvelles façon d'itérer de l'ES6 (for ... of) tout en s'adaptant à l'ES5 et moins.
+    "experimentalDecorators": true, // Permet d'utiliser les décorateurs ES
+    "module": "esnext", // Module utilisé pour la génération du code
+    "moduleResolution": "node", // Permet de définir quel outil s'occupe de charger les packages et les retrouver.
+    "importHelpers": true, // Import de function comme : __extends, __assign. https://mariusschulz.com/blog/external-helpers-library-in-typescript
+    "target": "es2015", // Version ES visée (ES6 ici)
+    "lib": [ // Librairie qui doit être inclue à la compilation
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": { // Idem que pour le compilateur typescript mais pour angular
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}
