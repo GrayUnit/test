@@ -17,9 +17,9 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    LoginModule,
     AppRoutingModule,
     UiModule,
-    LoginModule,
     TextModule,
     IconsModule,
     CoreModule,
