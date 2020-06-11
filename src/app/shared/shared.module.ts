@@ -6,6 +6,7 @@ import { BtnComponent } from './components/btn/btn.component';
 import { TotalPipe } from './pipes/total.pipe';
 import { StateDirective } from './directives/state.directive';
 import { TableDarkComponent } from './components/table-dark/table-dark.component';
+import { TemplatesModule } from '../templates/templates.module';
 
 
 
@@ -13,8 +14,9 @@ import { TableDarkComponent } from './components/table-dark/table-dark.component
   declarations: [TableLightComponent, BtnComponent, TotalPipe, StateDirective, TableDarkComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    TemplatesModule
   ],
-  exports: [BtnComponent, TableLightComponent, TableDarkComponent, TotalPipe, StateDirective]
+  exports: [BtnComponent, TableLightComponent, TableDarkComponent, TotalPipe, StateDirective, TemplatesModule]
 })
 export class SharedModule { }
