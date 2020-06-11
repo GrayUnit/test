@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription, Observable } from 'rxjs';
+
 import { OrdersService } from '../../services/orders.service';
 import { Order } from 'src/app/shared/models/orders';
 import { StateOrder } from 'src/app/shared/enums/state-order.enum';
@@ -9,15 +11,16 @@ import { Btn } from 'src/app/shared/interfaces/btn-i';
   templateUrl: './page-list-orders.component.html',
   styleUrls: ['./page-list-orders.component.scss']
 })
-export class PageListOrdersComponent implements OnInit {
+export class PageListOrdersComponent implements OnInit, OnDestroy {
 
-  public collection: Order[];
+  public collection$: Observable<Order[]>
+  // public collection: Order[];
   public headers: string[];
   public states = Object.values(StateOrder);
   public btnRoute: Btn;
   public btnHref: Btn;
   public btnAction: Btn;
-
+  private sub: Subscription;
 
   constructor(private os: OrdersService) {
   }
@@ -35,9 +38,10 @@ export class PageListOrdersComponent implements OnInit {
       label: "Open dialogue",
       action: true
     };
-    this.os.collection.subscribe((datas) => {
-      this.collection = datas;
-    });
+    // this.sub = this.os.collection.subscribe((datas) => {
+    //   this.collection = datas;
+    // });
+    this.collection$ = this.os.collection;
     this.headers = [
       "Type",
       "Client",
@@ -57,6 +61,10 @@ export class PageListOrdersComponent implements OnInit {
 
   public openPopUp() {
     console.log("Open popup");
+  }
+
+  ngOnDestroy() {
+    // this.sub.unsubscribe();
   }
 
 }
